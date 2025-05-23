@@ -1,0 +1,9 @@
+# vars.yml
+
+okd_release: "4.16.0-0.okd-2024-04-16-152930"
+arch: "x86_64"
+tmp_dir: "/tmp/okd-installer"
+install_dir: "{{ ansible_env.HOME }}/okd-install"
+base_url: "https://github.com/openshift/okd/releases/download/{{ okd_release }}"
+pull_secret_path: "{{ ansible_env.HOME }}/pull-secret.json"
+enable_libvirt: true
