@@ -1,0 +1,9 @@
+- become: true
+  hosts: all
+  name: Install OKD 4.18 Cluster
+  roles:
+  - prepare_host
+  - generate_ignition
+  - configure_haproxy
+  - deploy_cluster
+  - post_install

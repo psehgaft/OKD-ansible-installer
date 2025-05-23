@@ -1,0 +1,3 @@
+- name: Task for role generate_ignition
+  debug:
+    msg: 'Executing generate_ignition role'

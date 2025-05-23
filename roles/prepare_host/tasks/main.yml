@@ -1,0 +1,3 @@
+- name: Task for role prepare_host
+  debug:
+    msg: 'Executing prepare_host role'

@@ -1,0 +1,3 @@
+- name: Task for role post_install
+  debug:
+    msg: 'Executing post_install role'

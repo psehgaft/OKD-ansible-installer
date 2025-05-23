@@ -1,7 +1,11 @@
-# OKD 4.18 Installation Guide on VMware with Fedora CoreOS
+# OKD 4.18 Installation - Full Ansible Bundle
 
-This document provides a step-by-step guide to install OKD 4.18 using Fedora CoreOS,
-with automation powered by Ansible using a role-based structure.
+This package contains a full Ansible playbook structure for deploying an OKD 4.18 cluster.
+
+
+## Contents:
+- `site.yml`: Main playbook
+- `roles/`: Modular roles for each phase of installation
 
 ## Overview
 - Cluster Name: okd-qro
@@ -13,33 +17,9 @@ with automation powered by Ansible using a role-based structure.
 - Web Console: https:/cluster-name.domain.prefix
 - Storage: Local + VMware
 
-## VMware Image (OVA) Setup
 
-Instead of using the ISO, this deployment uses the prebuilt OVA image for Fedora CoreOS:
-
-**Download the OVA image**:  
-[Download OVA](https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/42.20250427.3.0/x86_64/fedora-coreos-42.20250427.3.0-vmware.x86_64.ova)
-
-This OVA is compatible with VMware environments and simplifies the creation of VMs for:
-- Bootstrap
-- Control Plane (Masters)
-- Compute Nodes (Workers)
-
-Import the OVA into your vSphere environment and attach the generated Ignition config via guestinfo metadata or mounted virtual disk.
-
-## Playbook Structure
-
-This playbook is modular and organized in roles:
-- `prepare_host`
-- `generate_ignition`
-- `configure_haproxy`
-- `deploy_cluster`
-- `post_install`
-
-Each role contains:
-- `tasks/`: Main automation steps
-- `templates/`: Templated configuration files
-- `files/`: Static files used in setup
-- `vars/`: Role-specific variables
-- `defaults/`: Default variables
-- `handlers/`: Ansible handlers
+## Usage:
+Customize variables under each role's `defaults/main.yml` and run the playbook with:
+```bash
+ansible-playbook -i inventory site.yml
+```
