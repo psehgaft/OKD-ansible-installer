@@ -1,0 +1,3 @@
+- name: Task for role deploy_cluster
+  debug:
+    msg: 'Executing deploy_cluster role'
