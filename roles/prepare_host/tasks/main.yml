@@ -1,3 +1,14 @@
-- name: Task for role prepare_host
+
+- name: Generate SSH key pair for user
+  ansible.builtin.openssh_keypair:
+    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+    type: rsa
+    size: 4096
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+  register: ssh_keygen_result
+
+- name: Display public key
   debug:
-    msg: 'Executing prepare_host role'
+    var: ssh_keygen_result.public_key
