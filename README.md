@@ -6,11 +6,11 @@ with automation powered by Ansible using a role-based structure.
 ## Overview
 - Cluster Name: okd-qro
 - Base Domain: inguzp.cloud
-- HAProxy Bastion (RHEL 9): 192.168.7.17
-- Masters: 192.168.7.12, 192.168.7.13, 192.168.7.14
-- Workers: 192.168.17.12, 192.168.17.13, 192.168.17.14
-- Bootstrap: 192.168.7.18
-- Web Console: https://okd-qro.inguzp.cloud
+- HAProxy Bastion (RHEL 9): 1 server
+- Masters: 3
+- Workers: N
+- Bootstrap: 1
+- Web Console: https:/cluster-name.domain.prefix
 - Storage: Local + VMware
 
 ## VMware Image (OVA) Setup
